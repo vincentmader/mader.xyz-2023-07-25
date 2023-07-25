@@ -1,5 +1,9 @@
 {% extends "base" %}
 
+{% block head %}
+<link rel="stylesheet" type="text/css" href="css/index.css">
+{% endblock head %}
+
 {% block body %}
 {{ message }}
 {% endblock body %}
