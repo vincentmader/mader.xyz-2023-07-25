@@ -1,9 +1,11 @@
 #[macro_use]
 extern crate rocket;
 
+use rocket_dyn_templates::{context, Template};
+
 #[get("/")]
-fn index() -> String {
-    "Hello, rocket.rs server!".into()
+fn index() -> Template {
+    Template::render("index", context! { message: "Hello, rocket.rs server!" })
 }
 
 #[get("/hello/<name>/<age>")]
@@ -13,5 +15,7 @@ fn hello(name: &str, age: u8) -> String {
 
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![hello, index])
+    rocket::build()
+        .attach(Template::fairing())
+        .mount("/", routes![hello, index])
 }
