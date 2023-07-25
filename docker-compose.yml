@@ -1,0 +1,28 @@
+version: "3.3"
+
+services:
+
+  server:
+    build: ./server
+    restart: always
+    environment:
+      VIRTUAL_HOST: server.localhost.lo
+    ports:
+      - 8031:8000
+    networks:
+      - reverse-proxy
+
+  client:
+    build: ./client
+    restart: always
+    environment:
+      VIRTUAL_HOST: client.localhost.lo
+    ports:
+      - 8032:8080
+    networks:
+      - reverse-proxy
+
+networks:
+  reverse-proxy:
+    external: true
+    name: proxy_mxyz_proxy_network
