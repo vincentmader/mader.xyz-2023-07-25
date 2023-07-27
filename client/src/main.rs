@@ -1,13 +1,14 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-mod routing;
+mod services;
+use services::routing::{switch, Route};
 
 #[function_component]
 fn App() -> Html {
     html! {
         <BrowserRouter>
-            <Switch<routing::Route> render={routing::switch} />
+            <Switch<Route> render={switch} />
         </BrowserRouter>
     }
 }

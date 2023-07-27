@@ -1,6 +1,8 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 
+use crate::services::routing::Route;
+
 #[derive(PartialEq, yew::Properties, std::default::Default)]
 pub struct Props {}
 
@@ -16,7 +18,7 @@ pub fn button_page(_props: &Props) -> Html {
     };
 
     let navigator = use_navigator().unwrap();
-    let onclick_2 = Callback::from(move |_| navigator.push(&crate::routing::Route::Home));
+    let onclick_2 = Callback::from(move |_| navigator.push(&Route::Home));
 
     html! {
         <div>
