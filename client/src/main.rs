@@ -3,6 +3,7 @@ use yew_router::prelude::*;
 
 mod services;
 use services::routing::{switch, Route};
+mod views;
 
 #[function_component]
 fn App() -> Html {

@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-mod button_page;
+use crate::views;
 
 #[derive(Debug, Clone, Copy, PartialEq, Routable)]
 pub enum Route {
@@ -17,7 +17,7 @@ pub enum Route {
 pub fn switch(routes: Route) -> Html {
     match routes {
         Route::Home => html! { <h1>{ "Home" }</h1> },
-        Route::Button => html! { <button_page::ButtonPage /> },
+        Route::Button => html! { <views::ButtonPage /> },
         Route::NotFound => html! { <h1>{ "404" }</h1> },
     }
 }
